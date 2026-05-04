@@ -8,7 +8,7 @@ const reels = [
     title: 'Grand Wedding Stage',
     category: 'Wedding',
     thumbnail: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=400&h=700&fit=crop',
-    embedUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ', // Replace with actual video URLs
+    embedUrl: 'https://www.instagram.com/reel/DR47b1RiGmr', // Replace with actual video URLs
     duration: '0:45',
   },
   {
@@ -16,7 +16,7 @@ const reels = [
     title: 'DJ Night Setup',
     category: 'DJ & Sound',
     thumbnail: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=400&h=700&fit=crop',
-    embedUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    embedUrl: 'https://www.instagram.com/reel/DVd6wthkySI',
     duration: '1:02',
   },
   {
@@ -24,7 +24,7 @@ const reels = [
     title: 'Corporate Event',
     category: 'Corporate',
     thumbnail: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&h=700&fit=crop',
-    embedUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    embedUrl: 'https://www.instagram.com/reel/DVLlbRbj5Ia',
     duration: '0:58',
   },
   {
@@ -32,7 +32,7 @@ const reels = [
     title: 'Stage Lighting Show',
     category: 'Lighting',
     thumbnail: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=400&h=700&fit=crop',
-    embedUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    embedUrl: 'https://www.instagram.com/reel/DWpnqBRzD3N',
     duration: '0:38',
   },
   {
@@ -40,7 +40,7 @@ const reels = [
     title: 'Cultural Program',
     category: 'Stage Programs',
     thumbnail: 'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=400&h=700&fit=crop',
-    embedUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    embedUrl: 'https://www.instagram.com/reel/DTrljzRElyd',
     duration: '1:15',
   },
 ]
@@ -210,7 +210,7 @@ export default function ReelsSection() {
           className="text-center mt-10"
         >
           <a
-            href="https://www.instagram.com/"
+            href="https://www.instagram.com/beatbox_04"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-[#2a2a2a] text-[#a0a0a0] text-sm font-semibold hover:border-[#e50914]/50 hover:text-white transition-all duration-300"

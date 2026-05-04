@@ -117,7 +117,7 @@ export default function Footer() {
             © {new Date().getFullYear()} Beat Box Dumka. All rights reserved.
           </p>
           <p className="text-[#404040] text-xs">
-            Made with ❤️ for Jharkhand's finest events
+            Made with ❤️ by Poddar Solutions
           </p>
         </div>
       </div>
