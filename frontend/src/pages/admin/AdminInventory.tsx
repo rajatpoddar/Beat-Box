@@ -103,7 +103,10 @@ export default function AdminInventory() {
     } catch { toast.error('Could not load inventory') } finally { setLoading(false) }
   }, [])
 
-  useEffect(() => { fetchItems() }, [fetchItems])
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    fetchItems()
+  }, [fetchItems])
 
   const handleDelete = async (id: number) => {
     if (!confirm('Delete this item?')) return

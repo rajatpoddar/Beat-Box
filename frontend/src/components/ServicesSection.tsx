@@ -1,5 +1,6 @@
 import { useRef } from 'react'
-import { motion, useInView, Variants } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
+import type { Variants } from 'framer-motion'
 import {
   Music4, Lightbulb, Presentation, Building2, Users, Sparkles, Star, Mic2
 } from 'lucide-react'

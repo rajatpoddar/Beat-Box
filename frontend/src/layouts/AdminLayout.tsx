@@ -1,6 +1,6 @@
 import { Outlet, NavLink, useNavigate } from 'react-router-dom'
 import {
-  LayoutDashboard, Calendar, Package, Users, LogOut, Menu, X, Music2
+  LayoutDashboard, Calendar, Package, Users, LogOut, Menu, Music2
 } from 'lucide-react'
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -12,16 +12,8 @@ const navItems = [
   { to: '/admin/staff', label: 'Staff', icon: Users, end: false },
 ]
 
-export default function AdminLayout() {
-  const [sidebarOpen, setSidebarOpen] = useState(false)
-  const navigate = useNavigate()
-
-  const handleLogout = () => {
-    localStorage.removeItem('bb_admin_token')
-    navigate('/admin/login')
-  }
-
-  const SidebarContent = () => (
+function SidebarContent({ onClose, onLogout }: { onClose: () => void, onLogout: () => void }) {
+  return (
     <div className="flex flex-col h-full">
       {/* Logo */}
       <div className="p-6 border-b border-[#2a2a2a]">
@@ -43,7 +35,7 @@ export default function AdminLayout() {
             key={to}
             to={to}
             end={end}
-            onClick={() => setSidebarOpen(false)}
+            onClick={onClose}
             className={({ isActive }) =>
               `flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 ${
                 isActive
@@ -61,7 +53,7 @@ export default function AdminLayout() {
       {/* Logout */}
       <div className="p-4 border-t border-[#2a2a2a]">
         <button
-          onClick={handleLogout}
+          onClick={onLogout}
           className="flex items-center gap-3 w-full px-4 py-3 rounded-xl text-sm font-medium text-[#a0a0a0] hover:bg-[#1a1a1a] hover:text-[#e50914] transition-all duration-200"
         >
           <LogOut size={18} />
@@ -70,12 +62,25 @@ export default function AdminLayout() {
       </div>
     </div>
   )
+}
+
+export default function AdminLayout() {
+  const [sidebarOpen, setSidebarOpen] = useState(false)
+  const navigate = useNavigate()
+
+  const handleLogout = () => {
+    localStorage.removeItem('bb_admin_token')
+    navigate('/admin/login')
+  }
 
   return (
     <div className="flex h-screen bg-[#0a0a0a] overflow-hidden">
       {/* Desktop Sidebar */}
       <aside className="hidden lg:flex flex-col w-64 bg-[#111111] border-r border-[#2a2a2a] flex-shrink-0">
-        <SidebarContent />
+        <SidebarContent 
+          onClose={() => setSidebarOpen(false)} 
+          onLogout={handleLogout} 
+        />
       </aside>
 
       {/* Mobile Sidebar */}
@@ -96,7 +101,10 @@ export default function AdminLayout() {
               transition={{ type: 'spring', damping: 25 }}
               className="fixed left-0 top-0 bottom-0 z-50 w-64 bg-[#111111] border-r border-[#2a2a2a] lg:hidden"
             >
-              <SidebarContent />
+              <SidebarContent 
+                onClose={() => setSidebarOpen(false)} 
+                onLogout={handleLogout} 
+              />
             </motion.aside>
           </>
         )}

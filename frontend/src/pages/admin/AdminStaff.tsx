@@ -105,7 +105,10 @@ export default function AdminStaff() {
     } catch { toast.error('Could not load staff') } finally { setLoading(false) }
   }, [])
 
-  useEffect(() => { fetchStaff() }, [fetchStaff])
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    fetchStaff()
+  }, [fetchStaff])
 
   const handleDelete = async (id: number) => {
     if (!confirm('Remove this staff member?')) return
