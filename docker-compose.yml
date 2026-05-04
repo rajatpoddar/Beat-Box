@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "9081:8000" # Host 9081 -> Container 8000
+    volumes:
+      - ./backend/beatbox.db:/app/beatbox.db
+    environment:
+      - DATABASE_URL=sqlite:///beatbox.db
+    restart: always
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "9080:80" # Host 9080 -> Container 80
+    depends_on:
+      - backend
+    restart: always
+
+# To see which ports were assigned, run: docker-compose ps
