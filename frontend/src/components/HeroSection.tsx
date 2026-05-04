@@ -1,26 +1,27 @@
-import { motion } from 'framer-motion'
+import { motion, Variants } from 'framer-motion'
 import { ArrowDown, Sparkles, Phone, MapPin } from 'lucide-react'
 
 const words = ['A2Z EVENT', 'MANAGEMENT', 'EXPERTS']
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.15 } },
 }
 
-const wordVariants = {
+const wordVariants: Variants = {
   hidden: { y: 80, opacity: 0, skewY: 6 },
   visible: {
     y: 0,
     opacity: 1,
     skewY: 0,
-    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
+    // Note: yahan 'easeOut' kar diya hai type error bachane ke liye
+    transition: { duration: 0.8, ease: "easeOut" },
   },
 }
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { y: 30, opacity: 0 },
-  visible: (delay = 0) => ({
+  visible: (delay: number = 0) => ({
     y: 0,
     opacity: 1,
     transition: { duration: 0.7, delay, ease: 'easeOut' },
@@ -123,8 +124,8 @@ export default function HeroSection() {
                 <motion.h1
                   variants={wordVariants}
                   className={`font-black tracking-tight leading-none ${i === 1
-                      ? 'text-[clamp(2.5rem,8vw,6rem)] text-[#e50914]'
-                      : 'text-[clamp(2.5rem,8vw,6rem)] text-white'
+                    ? 'text-[clamp(2.5rem,8vw,6rem)] text-[#e50914]'
+                    : 'text-[clamp(2.5rem,8vw,6rem)] text-white'
                     }`}
                   style={{ fontFamily: "'Bebas Neue', sans-serif", letterSpacing: '0.02em' }}
                 >

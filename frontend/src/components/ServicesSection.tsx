@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { motion, useInView, Variants } from 'framer-motion'
 import {
   Music4, Lightbulb, Presentation, Building2, Users, Sparkles, Star, Mic2
 } from 'lucide-react'
@@ -71,12 +71,13 @@ const services = [
   },
 ]
 
-const cardVariants = {
+const cardVariants: Variants = {
   hidden: { y: 40, opacity: 0 },
   visible: (i: number) => ({
     y: 0,
     opacity: 1,
-    transition: { duration: 0.6, delay: i * 0.07, ease: [0.16, 1, 0.3, 1] },
+    // Note: Yahan bhi ease ko 'easeOut' kar diya
+    transition: { duration: 0.6, delay: i * 0.07, ease: "easeOut" },
   }),
 }
 
